@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="left">
+        <!-- 工程概况 -->
+        <div class="left_top">title
+            <!-- //工程概况标题 -->
+            <div class="gcgk_title">
+                <span>工程概况</span>
+            </div>
+            <!-- 工程概况内容 -->
+            <div class="gcgk_content">
+
+                <div class="projnum">
+                    <img src="./image/projtitle.png" alt=""> <span>工程总数：</span><strong id='proTotalNum'>101</strong>个
+                </div>
+                <div class="num">
+                    <div>
+                        <img src="./image/mainPower.png" alt=""> <span>变电站总数：</span><strong id='towerTotalNUm'>150</strong>个
+                    </div>
+                    <div>
+                        <img src="./image/zhedan.png" alt=""> <span>线路长度：</span><strong id='lineLength'>7324</strong>km
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="left_center_top">
+            <div class="lct_title"><span>工程统计</span></div>
+            <div class="chart">
+                <div id='prjTotalChart'></div>
+            </div>
+        </div>
+        <div class="left_center">
+            <div class="l_c_l">
+                <div id='pie'></div>
+                <div class="pie-data projProperty"></div>
+            </div>
+            <div class="l_c_r">
+                <div id='pie1'></div>
+                <div class="pie-data projState"></div>
+            </div>
+        </div>
+        <div class="left_bottom">
+            <div class="bottomtitle"><span>主变容量统计</span></div>
+            <div id='mainPowerTotal'></div>
+        </div>
+    </div>
+    <div class="center">
+        <!-- 地图 -->
+        <div class="map">
+            <!-- left地图 -->
+            <div class="map_lf" id="bigmap"></div>
+            <div class="map_rg">
+                <div class="map_rg_content">
+                    <main class="top0">
+                        <div class="bg">1</div>
+                        <div>
+                            <p>江北区</p>
+                            <p>工程数量：12</p>
+                        </div>
+                        <div class="top1"><img src="./image/CQ/jiangbei.png"></div>
+                    </main>
+                    <main class="top0">
+                        <div class="bg">2</div>
+                        <div>
+                            <p>九龙坡</p>
+                            <p>工程数量：10</p>
+                        </div>
+                        <div class="top1"><img src="./image/CQ/jiulongpo.png"></div>
+                    </main>
+                    <main class="top0">
+                        <div class="bg">3</div>
+                        <div>
+                            <p>南岸</p>
+                            <p>工程数量：8</p>
+                        </div>
+                        <div class="top1"><img src="./image/CQ/nanan.png"></div>
+                    </main>
+                    <main class="top0">
+                        <div class="bg">4</div>
+                        <div>
+                            <p>巴南</p>
+                            <p>工程数量：7</p>
+                        </div>
+                        <div class="top1"><img src="./image/CQ/banan.png"></div>
+                    </main>
+                    <main class="top0">
+                        <div class="bg">5</div>
+                        <div>
+                            <p>江津</p>
+                            <p>工程数量：6</p>
+                        </div>
+                        <div class="top1"><img src="./image/CQ/jiangjin.png"></div>
+                    </main>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="towerAndline">
+        <!-- 变电站排行榜 -->
+        <main>
+            <div class="area_title"><span>变电站区域排行</span></div>
+            <div class="area_content">
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>江北</span>
+                        <span>12个</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>巴南区</span>
+                        <span>10个</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>江津</span>
+                        <span>9个</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>大渡口</span>
+                        <span>7个</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>北部</span>
+                        <span>10个</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>潼南</span>
+                        <span>3个</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--电线排行榜  -->
+        <main>
+            <div class="area_title"><span>电线区域排行</span></div>
+            <div class="area_content">
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>渝北</span>
+                        <span>110km</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>江北</span>
+                        <span>90km</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>江津</span>
+                        <span>88km</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>綦江</span>
+                        <span>85km</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>沙坪坝</span>
+                        <span>79km</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <article></article>
+                    </div>
+                    <div>
+                        <span>万州</span>
+                        <span>70km</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="right">
+        <div class="r_top">
+            <article>
+                <div class="r_top_title"><span>变电站工程增量统计</span></div>
+                <div class="t_top_diagram" id="towerZengLiang"></div>
+                <div class="t_top_bottom">
+                    <p>变电站</p>
+                </div>
+            </article>
+            <article>
+                <div class="r_top_title"><span>线路工程增量统计</span></div>
+                <div class="t_top_diagram" id="lineZengLiang"></div>
+                <div class="t_top_bottom">
+                    <p>电线</p>
+                </div>
+            </article>
+        </div>
+        <div class="r_center">
+            <div class="r_center_title">
+                <span>变电站工程完工时间</span>
+            </div>
+            <div class="r_center_content">
+                <div class="r_center_content_pie" id='finishTime'></div>
+                <div class="r_center_content_diagram" id="finishTimeDia"></div>
+            </div>
+        </div>
+        <div class="r_bottom">
+            <div class="r_bottom_title">
+                <span>电线年份对应表</span>
+            </div>
+            <article id="yearLine"></article>
+        </div>
+    </div>
+
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/jquery-2.0.0.min.js"></script>
+    <script src="./js/socket.io.min.js"></script>
+    <script type="module">
+        import {addChart} from './js/addChart.js';
+        connectionServer();
+        // addChart.setOption(addChart.yearAndTowerOption, 'prjTotalChart');
+        //addChart.setTowerAndYear([2013,2015,2016,2019]);
+
+        var projPropertyData = [{name: '在建', value: 1,percent: '0.8',}, {name: '投产',value: 113,percent: '99.2',}]
+        addChart.chart1('pie','.projProperty',projPropertyData);
+        var projStateData = [{name: '新建', value: 74,percent: 65.5,}, {name: '扩建',value: 39,percent: 34.5,}];
+        addChart.chart1('pie1','.projState',projStateData);
+        addChart.setOption(addChart.touchangZhuBianOption, 'mainPowerTotal');
+        addChart.setOption(addChart.unilatKeralKilometreOption, 'yearLine');
+        addChart.finishTime();
+        addChart.setOption(addChart.finishTimeOption, 'finishTimeDia');
+        addChart.towerZengLiang();
+        addChart.lineZengLiang();
+        addChart.cqmap();
+        addChart.setProjProfile(2000,2000,2000);
+        //工程统计
+        addChart.setTowerAndYear([2015,2018,2019]);
+        function connectionServer() {
+               var namespace = "/";
+               window.appname = "html";
+            //    window.serverURL = "ws://192.168.22.81:3001" + namespace;
+            // window.serverURL = "ws://192.168.13.13:3001" + namespace;
+            window.serverURL = "ws://127.0.0.1:3001" + namespace;
+               try {
+                    var scoket = io.connect(window.serverURL);
+                    window.mysocket = scoket;
+                    scoket.on("connect", function () {
+                         window.mysocket.emit("login", {
+                              appname: window.appname
+                         });
+                    });
+               } catch (err) {
+                    console.log("err");
+               }
+          }
+          //工程概况
+          window.mysocket.on('projProfile',(mes)=>{
+              //projNum,toweNum,lineLength
+            addChart.setProjProfile(mes.projNum,mes.toweNum,mes.lineLength)
+          });
+          //工程统计
+          window.mysocket.on('EngineeringStatistics',(year)=>{
+            addChart.setTowerAndYear([2013,2015,2016,2019]);
+          })
+    </script>
+</body>
+
+</html>

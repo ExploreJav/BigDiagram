@@ -1,0 +1,175 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 3000px;
+  height: 1200px;
+  background-color: #192027;
+  background-image: url(../image/top.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.left {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 826px;
+  height: 1100px;
+}
+.left .left_top {
+  width: 100%;
+}
+.left .left_top .gcgk_title {
+  width: 100%;
+  height: 58px;
+  background-image: url(../image/title.png);
+  background-repeat: no-repeat;
+  color: #96afec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left .left_top .gcgk_title span {
+  margin-left: 20px;
+  font-size: 22px;
+}
+.left .left_top .gcgk_content {
+  width: 100%;
+  height: 123px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 20px;
+  color: #96afec;
+}
+.left .left_top .gcgk_content img {
+  margin-left: 70px;
+}
+.left .left_top .gcgk_content span {
+  margin-left: 20px;
+}
+.left .left_top .gcgk_content .projnum {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.left .left_top .gcgk_content .num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.left .left_top .gcgk_content .num div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.left .left_top .gcgk_content .num div:nth-child(2) {
+  margin-left: 100px;
+}
+.left .left_center_top {
+  width: 100%;
+  height: 279px;
+  font-size: 20px;
+  color: #96afec;
+}
+.left .left_center_top .lct_title {
+  height: 58px;
+  background-image: url(../image/title.png);
+  background-repeat: no-repeat;
+  color: #96afec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left .left_center_top .lct_title span {
+  margin-left: 20px;
+  font-size: 22px;
+}
+.left .left_center_top .lct_title span i {
+  margin-left: 20px;
+}
+.left .left_center_top .chart {
+  width: 100%;
+  height: 221px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left .left_center_top .chart #prjTotalChart {
+  width: 100%;
+  height: 100%;
+}
+.left .left_center {
+  width: 100%;
+  height: 285px;
+  color: white;
+}
+.left .left_center .pie-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.left .left_center span {
+  margin-left: 10px;
+}
+.left .left_center div {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.left .left_bottom {
+  width: 100%;
+  height: 325px;
+}
+.left .left_bottom .bottomtitle {
+  height: 58px;
+  background-image: url(../image/title.png);
+  background-repeat: no-repeat;
+  color: #96afec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left .left_bottom .bottomtitle span {
+  margin-left: 20px;
+  font-size: 22px;
+}
+.left .left_bottom #mainPowerTotal {
+  width: 100%;
+  height: 267px;
+}
+.center {
+  position: absolute;
+  top: 130px;
+  left: 963px;
+  width: 1074px;
+  height: 672px;
+  background-color: #202a3a;
+}
+.center .map {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.center .map .map_lf {
+  width: 740px;
+  height: 100%;
+  float: left;
+}
+.center .map .map_rg {
+  float: left;
+  width: 334px;
+  height: 100%;
+  padding-bottom: 55px;
+}
+.center .map .map_rg .map_rg_content {
+  width: 100%;
+  height: 552px;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
