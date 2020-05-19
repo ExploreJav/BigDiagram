@@ -271,7 +271,8 @@
         connectionServer();
         // addChart.setOption(addChart.yearAndTowerOption, 'prjTotalChart');
         //addChart.setTowerAndYear([2013,2015,2016,2019]);
-
+        var initTouchangZhuBianX = [9, 12, 15, 18, 24, 36, 48, 72, 75, 100, 150, 200, 300];
+        var initData = [1, 12, 3, 15, 2, 37, 20, 1, 7, 5, 1, 4, 1];
         var projPropertyData = [{name: '在建', value: 1,percent: '0.8',}, {name: '投产',value: 113,percent: '99.2',}]
         addChart.chart1('pie','.projProperty',projPropertyData);
         var projStateData = [{name: '新建', value: 74,percent: 65.5,}, {name: '扩建',value: 39,percent: 34.5,}];
@@ -283,7 +284,7 @@
         addChart.towerZengLiang();
         addChart.lineZengLiang();
         addChart.cqmap();
-        addChart.setProjProfile(2000,2000,2000);
+       // addChart.setProjProfile(2000,2000,2000);
         //工程统计
         addChart.setTowerAndYear([2015,2018,2019]);
         function connectionServer() {
@@ -291,7 +292,7 @@
                window.appname = "html";
             //    window.serverURL = "ws://192.168.22.81:3001" + namespace;
             // window.serverURL = "ws://192.168.13.13:3001" + namespace;
-            window.serverURL = "ws://127.0.0.1:3001" + namespace;
+            window.serverURL = "ws://192.168.22.55:3001" + namespace;
                try {
                     var scoket = io.connect(window.serverURL);
                     window.mysocket = scoket;
@@ -304,15 +305,67 @@
                     console.log("err");
                }
           }
-          //工程概况
-          window.mysocket.on('projProfile',(mes)=>{
+          //点击年份设置工程概况和工程统计
+        window.mysocket.on('projProfileAndStatistics',(mes)=>{
               //projNum,toweNum,lineLength
-            addChart.setProjProfile(mes.projNum,mes.toweNum,mes.lineLength)
-          });
-          //工程统计
-          window.mysocket.on('EngineeringStatistics',(year)=>{
-            addChart.setTowerAndYear([2013,2015,2016,2019]);
-          })
+            addChart.setProjProfile(mes.projNum,mes.towerNum,mes.km);
+            addChart.setTowerAndYear(mes.yearNum.year);
+            //在建、投产和新建、扩建
+            let construction;
+            
+            if(mes.yearNum.year.includes(2019)){
+                construction = 1;
+            }else{
+                construction = 0;
+            }
+            let operation = mes.state[0]+ mes.state[1]-construction;
+            let constructionPer = ((construction/( mes.state[0]+ mes.state[1])).toFixed(4))*100;
+            let operationPer = (((mes.state[0]+ mes.state[1]-construction)/( mes.state[0]+ mes.state[1])).toFixed(4))*100;
+            let constructorData = [{name: '在建', value: construction,percent: constructionPer,}, {name: '投产',value: operation,percent: operationPer,}]
+            addChart.chart1('pie','.projProperty',constructorData);
+
+
+            let newBuild = mes.state[0];
+            let extend =  mes.state[1];
+            let newBuildPer = ((newBuild/(newBuild+extend)).toFixed(4))*100;
+            let extendPer = ((extend/(newBuild+extend)).toFixed(4))*100;
+            let projEng = [{name: '新建', value:newBuild,percent: newBuildPer,}, {name: '扩建',value: extend,percent: extendPer,}]
+            addChart.chart1('pie1','.projState',projEng);
+            //投产主变容量
+            addChart.touchangZhuBianOption.xAxis.data = mes.mainCapacity.type;
+            addChart.touchangZhuBianOption.series[0].data = mes.mainCapacity.num;
+            addChart.setOption(addChart.touchangZhuBianOption, 'mainPowerTotal');
+        });
+        window.mysocket.on('areaData',(mes)=>{
+              //projNum,toweNum,lineLength
+            addChart.setProjProfile(mes.projNum,mes.towerNum,mes.km);
+            //在建、投产和新建、扩建
+            //let construction = 1;
+            let operation = mes.state[0]+ mes.state[1]-1;
+            let constructionPer = ((0/( mes.state[0]+ mes.state[1])).toFixed(4))*100;
+            let operationPer = (((mes.state[0]+ mes.state[1])/( mes.state[0]+ mes.state[1])).toFixed(4))*100;
+            let constructorData = [{name: '在建', value: 0,percent: constructionPer,}, {name: '投产',value: operationPer,percent: operationPer,}]
+            addChart.chart1('pie','.projProperty',constructorData);
+
+
+            let newBuild = mes.state[0];
+            let extend =  mes.state[1];
+            let sum = newBuild+extend;
+            if(sum==0){
+                let projEng = [{name: '新建', value:0,percent: 0,}, {name: '扩建',value: 0,percent: 0,}]
+                addChart.chart1('pie1','.projState',projEng);
+            }else{
+                let newBuildPer = ((newBuild/(newBuild+extend)).toFixed(4))*100;
+                let extendPer = ((extend/(newBuild+extend)).toFixed(4))*100;
+                let projEng = [{name: '新建', value:newBuild,percent: newBuildPer,}, {name: '扩建',value: extend,percent: extendPer,}]
+                addChart.chart1('pie1','.projState',projEng);
+            }
+            
+            //投产主变容量
+            addChart.touchangZhuBianOption.xAxis.data = mes.mainCapacity.type;
+            addChart.touchangZhuBianOption.series[0].data = mes.mainCapacity.num;
+            addChart.setOption(addChart.touchangZhuBianOption, 'mainPowerTotal');
+        });
     </script>
 </body>
 

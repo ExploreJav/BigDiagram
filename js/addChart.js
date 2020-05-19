@@ -212,7 +212,8 @@ var addChart = {
         },
 
         //------------ 内容数据  -----------------
-        series: [{
+        series: [
+        {
             name: '电站数量', //---系列名称
             type: 'bar', //---类型
             legendHoverLink: true, //---是否启用图例 hover 时的联动高亮
@@ -1020,7 +1021,7 @@ var addChart = {
         for (var i = 0; i < data.length; i++) {
             str += '<p>' + '<span>' + data[i].name + '</span>' + '<span class="pie-number" style="color:' + startColor[i] + '">' + data[i].value + '个</span>' + '<span>' + Number(data[i].percent).toFixed(1) + '%</span>' + '</p>';
         }
-
+        $(cls).empty();
         $(cls).append(str);
 
 
